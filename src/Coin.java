@@ -8,12 +8,12 @@ public class Coin {
         coin = sc.nextInt();
 
         int coinArr[] = new int[]{50000, 10000, 5000, 1000, 500, 100, 50, 10};
-        int current[] = new int[8];
+        int coinCount[] = new int[8];
 
         for (int i = 0; i < 8; i++) {
-            current[i] = coin/ coinArr[i];
+            coinCount[i] = coin / coinArr[i];
             coin %= coinArr[i];
-            System.out.println(coinArr[i] + "원: " + current[i] + "개");
+            System.out.println(coinArr[i] + "원: " + coinCount[i] + "개");
         }
     }
 }
