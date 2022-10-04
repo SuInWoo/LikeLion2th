@@ -13,7 +13,7 @@ public class Coin {
         for (int i = 0; i < 8; i++) {
             current[i] = coin/ coinArr[i];
             coin %= coinArr[i];
-            System.out.println(coinArr[i] + "원" + current[i] + "개");
+            System.out.println(coinArr[i] + "원: " + current[i] + "개");
         }
     }
 }
