@@ -3,20 +3,21 @@ package course1005;
 public class RandomCalculator {
     private int a;
     private int randomNum = (int)(Math.random()*10);
+
     public RandomCalculator(int a) {
         this.a = a;
     }
 
     public void plus(){
-        System.out.println(a+(int)randomNum);
+        System.out.println(a+randomNum);
     }
 
     public void minus(){
-        System.out.println(a-(int)randomNum);
+        System.out.println(a-randomNum);
     }
 
     public void multiple(){
-        System.out.println(a*(int)randomNum);
+        System.out.println(a*randomNum);
     }
 
     public void divide(){
