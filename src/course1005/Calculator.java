@@ -10,19 +10,28 @@ package course1005;
  * psvm 생성 x
  */
 public class Calculator {
-    public void plus(int a, int b) {
+
+    int a;
+    int b;
+
+    public Calculator(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    public void plus() {
         System.out.println(a + b);
     }
 
-    public void minus(int a, int b) {
+    public void minus() {
         System.out.println(a - b);
     }
 
-    public void multiple(int a, int b) {
+    public void multiple() {
         System.out.println(a * b);
     }
 
-    public void divide(float a, float b) {
-        System.out.println(a / b);
+    public void divide() {
+        System.out.println((float)(a / b));
     }
 }
