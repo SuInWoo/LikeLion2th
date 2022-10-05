@@ -32,6 +32,6 @@ public class Calculator {
     }
 
     public void divide() {
-        System.out.println((float)(a / b));
+        System.out.println((float)a / b);
     }
 }
