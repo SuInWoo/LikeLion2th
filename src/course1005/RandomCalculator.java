@@ -24,7 +24,12 @@ public class RandomCalculator {
         if (randomNum == 0){
             System.out.println("랜덤하게 생성된 숫자가 0 입니다.");
         }else {
-            System.out.println((float) (a / randomNum));
+            float div = (float) a / randomNum;
+            System.out.println(div);
         }
+
+        /**
+         * throw new ILLegalArgumentException("/ by 0")
+         */
     }
 }
