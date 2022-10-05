@@ -22,7 +22,7 @@ public class Calculator {
         System.out.println(a * b);
     }
 
-    public void divide(int a, int b) {
+    public void divide(float a, float b) {
         System.out.println(a / b);
     }
 }
