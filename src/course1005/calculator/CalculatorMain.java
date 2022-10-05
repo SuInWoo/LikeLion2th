@@ -1,4 +1,4 @@
-package course1005;
+package course1005.calculator;
 
 public class CalculatorMain {
     public static void main(String[] args) {

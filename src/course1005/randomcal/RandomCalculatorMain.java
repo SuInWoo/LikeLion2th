@@ -1,4 +1,4 @@
-package course1005;
+package course1005.randomcal;
 
 public class RandomCalculatorMain {
     public static void main(String[] args) {
