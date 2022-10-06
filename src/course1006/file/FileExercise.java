@@ -12,4 +12,15 @@ public class FileExercise {
             System.out.println(file);
         }
     }
+
+    /**
+     * ./out
+     * ./README.md
+     * ./.gitignore
+     * ./LikeLion2th.iml
+     * ./.git
+     * ./a_file.txt
+     * ./.idea
+     * ./src
+     */
 }
