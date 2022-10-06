@@ -24,11 +24,26 @@ public class ReadFile {
         }
     }
 
+    void readNByte(String filename, int cnt) throws IOException {
+
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(filename), StandardCharsets.UTF_8)){
+            for(int i = 0; i < cnt; i++) {
+                System.out.println((char) br.read());
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     public static void main(String[] args) throws IOException {
         ReadFile readFile = new ReadFile("");
         char c = readFile.readOneByte("./a_file.txt");
 
         System.out.println(c);
+
+        readFile.readNByte("./a_file.txt", 2);
+
 
     }
 
