@@ -22,10 +22,12 @@ public class ReadNFile {
 
         String str = "";
         try (BufferedReader br = Files.newBufferedReader(Paths.get(filename), StandardCharsets.UTF_8)){
+
             for(int i = 0; i < cnt; i++) {
                 str += (char)br.read();
             }
             return str;
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
