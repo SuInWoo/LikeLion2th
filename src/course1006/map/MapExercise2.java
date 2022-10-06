@@ -10,22 +10,46 @@ import java.util.Map;
  * 2. 알파벳 판별 메소드를 통해 refactoring 해보기
  */
 public class MapExercise2 {
-    public static void main(String[] args) {
-        String repoAddr = "https://github.com/SuInWoo/LikeLion2th/tree/main/src".toUpperCase();
-        System.out.println(repoAddr);
+    private String s;
+    private HashMap<Character, Integer> alphabetCnt;
 
-        HashMap<Character, Integer> alphabetCnt = new HashMap<>();
+    public MapExercise2(String s) {
+        this.s = s;
+        this.alphabetCnt = new HashMap<>();
+    }
 
-        for (int i = 0; i < repoAddr.length(); i++){
-            char c = repoAddr.charAt(i);    //깃 주소를 문자 한개씩 받을 변수
-            if (c >= 'A' && c <= 'Z' && alphabetCnt.get(c) == null ){
-                alphabetCnt.put(c, 1);
-            } else if (c >= 'A' && c <= 'Z') { //이미 들어온 값이면 value++
-                alphabetCnt.put(c, (alphabetCnt.get(c)+1));
+    public boolean isAlphabet(char c){
+        if (c >= 'A' && c <= 'Z'){
+            return true;
+        }else
+            return false;
+    }
+
+    public void count() {
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (isAlphabet(c)) {
+                if (alphabetCnt.get(c) != null)
+                    alphabetCnt.put(c, alphabetCnt.get(c) + 1);
+                else alphabetCnt.put(c, 1);
             }
         }
+    }
 
-        for (Map.Entry<Character,Integer> entry: alphabetCnt.entrySet()) {
+    public HashMap<Character, Integer> getAlphabetCnt() {
+        return alphabetCnt;
+    }
+
+    public static void main(String[] args) {
+
+        String s = "https://github.com/SuInWoo/LikeLion2th/tree/main/src".toUpperCase();
+        MapExercise2 mapExercise2 = new MapExercise2(s);
+
+        mapExercise2.count();
+
+        Map<Character, Integer> countMap = mapExercise2.getAlphabetCnt();
+
+        for (Map.Entry<Character,Integer> entry: countMap.entrySet()) {
             System.out.println(entry.getKey()+" : "+ entry.getValue());
         }
     }
