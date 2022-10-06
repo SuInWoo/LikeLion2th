@@ -28,6 +28,7 @@ public class ReadFile {
     public static void main(String[] args) throws IOException {
         ReadFile readFile = new ReadFile("");
         char c = readFile.readOneByte("./a_file.txt");
+
         System.out.println(c);
 
     }
