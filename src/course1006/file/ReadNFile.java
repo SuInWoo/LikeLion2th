@@ -18,7 +18,7 @@ public class ReadNFile {
         this.cnt = cnt;
     }
 
-    String readNByte(String filename, int cnt) throws IOException {
+    String readNChar(String filename, int cnt) throws IOException {
 
         String str = "";
         try (BufferedReader br = Files.newBufferedReader(Paths.get(filename), StandardCharsets.UTF_8)){
@@ -39,7 +39,7 @@ public class ReadNFile {
         System.out.println("출력할 글자 수를 입력하세요.");
         int cnt = sc.nextInt();
 
-        System.out.println(readNFile.readNByte("./a_file.txt", cnt));
+        System.out.println(readNFile.readNChar("./a_file.txt", cnt));
 
     }
 
