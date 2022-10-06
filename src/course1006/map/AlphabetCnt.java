@@ -29,8 +29,6 @@ public class AlphabetCnt {
             }
         }
 
-        for (Map.Entry<Character,Integer> entry: alphabetMap.entrySet()) {
-            System.out.println(entry.getKey()+" : "+ entry.getValue());
-        }
+        System.out.println(alphabetMap);
     }
 }
