@@ -22,12 +22,10 @@ public class ReadNFile {
 
         String str = "";
         try (BufferedReader br = Files.newBufferedReader(Paths.get(filename), StandardCharsets.UTF_8)){
-
             for(int i = 0; i < cnt; i++) {
                 str += (char)br.read();
             }
             return str;
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -36,6 +34,7 @@ public class ReadNFile {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         ReadNFile readNFile = new ReadNFile("", 0);
+
 
         System.out.println("출력할 글자 수를 입력하세요.");
         int cnt = sc.nextInt();
