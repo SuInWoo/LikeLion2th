@@ -1,8 +1,6 @@
 package course1007;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -66,14 +64,47 @@ public class PopulationStatistics {
         return new PopulationMove(parseArr[0], parseArr[6]);    //전입 to, 전출 from
     }
 
+    public void createAFile(String filename) {
+        File file = new File(filename);
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //List<String>을 지정한 파일에 write
+    public void write(List<String> strs, String filename) {
+        File file = new File(filename);
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file,true));
+            for (String str : strs){
+                writer.write(str);
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) throws IOException {
 
         String address = "/Users/suin/Downloads/수업 데이터 파일/2021_인구관련연간자료_20221006_12557.csv";
         PopulationStatistics populationStatistics = new PopulationStatistics();
-        List<PopulationMove> pml = populationStatistics.readByLine(address);
 
-        System.out.println(pml.size());
+//        List<PopulationMove> pml = populationStatistics.readByLine(address);
+//
+//        for (PopulationMove pm : pml){
+//            System.out.printf("전입:%s, 전출:%s \n", pm.getFromSido(), pm.getToSido());
+//        }
+//        System.out.println(pml.size());
+
+//        populationStatistics.createAFile("./from_to.txt");
+
+        List<String> strings = new ArrayList<>();
+        strings.add("11,11");
+        populationStatistics.write(strings, "./from_to.txt");
 
     }
 }
