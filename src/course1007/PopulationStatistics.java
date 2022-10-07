@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
     파일 읽어오기
@@ -25,21 +27,6 @@ public class PopulationStatistics {
         System.out.println(fileContents);
 
     }
-    public void readByLine(String fileName) throws IOException {
-
-        //삽
-        BufferedReader reader = new BufferedReader(
-                new FileReader(fileName)
-        );
-        String str;
-
-        while ((str = reader.readLine()) != null) {
-            System.out.println(str);
-            PopulationMove pm = parse(str);
-        }
-
-        reader.close();
-    }
 
     //요즘 스타일
     public void readByLine2(String fileName) {
@@ -55,6 +42,25 @@ public class PopulationStatistics {
         }
     }
 
+    //////////////////////////////////////////////////////////////////
+
+    public List<PopulationMove> readByLine(String fileName) throws IOException {
+
+        List<PopulationMove> pml = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(
+                new FileReader(fileName)
+        );
+        String str;
+
+        while ((str = reader.readLine()) != null) {
+            PopulationMove pm = parse(str);
+            pml.add(pm);
+        }
+
+        reader.close();
+        return pml;
+    }
+
     public PopulationMove parse(String data){
         String[] parseArr = data.split(",");
         return new PopulationMove(parseArr[0], parseArr[6]);    //전입 to, 전출 from
@@ -65,16 +71,9 @@ public class PopulationStatistics {
 
         String address = "/Users/suin/Downloads/수업 데이터 파일/2021_인구관련연간자료_20221006_12557.csv";
         PopulationStatistics populationStatistics = new PopulationStatistics();
+        List<PopulationMove> pml = populationStatistics.readByLine(address);
 
-        PopulationMove populationMove = populationStatistics.parse("11,110,51500,2021,01,04,11,110,51500,5,1,033,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,9");
-        System.out.printf("toSido: %d fromSido: %d", populationMove.getToSido(), populationMove.getFromSido());
-
-
-
-
-//        populationStatistics.readByChar(address);
-//        populationStatistics.readByLine(address);
-//        populationStatistics.readByLine2(address);
+        System.out.println(pml.size());
 
     }
 }
