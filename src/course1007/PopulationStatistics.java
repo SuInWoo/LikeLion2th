@@ -19,6 +19,6 @@ public class PopulationStatistics {
         }
 
         System.out.println(fileContents);
-
+        // 1byte 씩 읽기
     }
 }
