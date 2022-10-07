@@ -1,14 +1,19 @@
 package course1007;
 
 public class PopulationMove {
+    //전입 to 전출 from
     private int fromSido;
     private int toSido;
 
-    //constructor 추가
-
-    public PopulationMove(int fromSido, int toSido) {
-        this.fromSido = fromSido;
+    public PopulationMove(int toSido, int fromSido) {
         this.toSido = toSido;
+        this.fromSido = fromSido;
+    }
+
+    //오버로딩
+    public PopulationMove(String toSido, String fromSido){
+        this.toSido = Integer.parseInt(toSido);
+        this.fromSido = Integer.parseInt(fromSido);
     }
 
     public int getFromSido() {

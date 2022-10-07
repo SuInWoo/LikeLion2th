@@ -35,6 +35,7 @@ public class PopulationStatistics {
 
         while ((str = reader.readLine()) != null) {
             System.out.println(str);
+            PopulationMove pm = parse(str);
         }
 
         reader.close();
@@ -56,7 +57,7 @@ public class PopulationStatistics {
 
     public PopulationMove parse(String data){
         String[] parseArr = data.split(",");
-        return new PopulationMove(Integer.parseInt(parseArr[0]), Integer.parseInt(parseArr[6]));
+        return new PopulationMove(parseArr[0], parseArr[6]);    //전입 to, 전출 from
     }
 
 
@@ -67,6 +68,9 @@ public class PopulationStatistics {
 
         PopulationMove populationMove = populationStatistics.parse("11,110,51500,2021,01,04,11,110,51500,5,1,033,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,9");
         System.out.printf("toSido: %d fromSido: %d", populationMove.getToSido(), populationMove.getFromSido());
+
+
+
 
 //        populationStatistics.readByChar(address);
 //        populationStatistics.readByLine(address);
