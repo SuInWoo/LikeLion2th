@@ -114,11 +114,14 @@ public class PopulationStatistics {
         List<PopulationMove> pml = ps.readByLine(address);
 
         Map<String, Integer> map = ps.getMoveCnt(pml);
-        String targetFileName = "each_sido_cnt.txt";
+//        String targetFileName = "each_sido_cnt.txt";
+        String targetFileName = "for_heatmap.txt";
         ps.createAFile(targetFileName);
         List<String> cntResult = new ArrayList<>();
         for (String key : map.keySet()) {
-            String s = String.format("key:%s value:%d \n", key, map.get(key));
+//            String s = String.format("key:%s value:%d \n", key, map.get(key));
+            String[] heatS = key.split(",");
+            String s = String.format("[%s, %s, %d]\n", heatS[0], heatS[1], map.get(key));
             cntResult.add(s);
         }
         ps.write(cntResult,targetFileName);
