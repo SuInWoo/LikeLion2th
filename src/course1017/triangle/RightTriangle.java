@@ -2,20 +2,32 @@ package course1017.triangle;
 
 public class RightTriangle {
 
-    public void printTriangle(int n){
-        for (int i = 1; i <= n; i++) {
+    private String letter = "*";
+    private int repeat;
+
+    public RightTriangle(String letter, int repeat) {
+        this.letter = letter;
+        this.repeat = repeat;
+    }
+
+    public void print(RightTriangle rt){
+        for (int i = 1; i <= rt.repeat; i++) {
             for (int j = 0; j < i; j++) {
-                System.out.print("*");
+                System.out.print(rt.letter);
             }
             System.out.println();
         }
     }
+
     public static void main(String[] args) {
 
-        RightTriangle rt = new RightTriangle();
-        int n = 4;  //Scanner 사용해서 추후 입력받을 수 있음
+        String inStr = "#";
+        int n = 4;
+        RightTriangle rt = new RightTriangle(inStr, n);
 
-        rt.printTriangle(n);
+        rt.print(rt);
+
+
 
     }
 }
