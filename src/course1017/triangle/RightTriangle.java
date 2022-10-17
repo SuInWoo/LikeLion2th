@@ -5,6 +5,9 @@ public class RightTriangle {
     private String letter = "*";
     private int repeat;
 
+    public RightTriangle() {
+    }
+
     public RightTriangle(String letter, int repeat) {
         this.letter = letter;
         this.repeat = repeat;
