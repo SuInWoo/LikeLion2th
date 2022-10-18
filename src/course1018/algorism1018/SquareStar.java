@@ -13,6 +13,7 @@ public class SquareStar {
         }
     }
 
+
     public static void main(String[] args) {
         SquareStar squareStar = new SquareStar();
         int n = 3;
