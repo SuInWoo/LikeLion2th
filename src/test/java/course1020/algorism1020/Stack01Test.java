@@ -65,4 +65,13 @@ class Stack01Test {
             st.pop();
         });
     }
+
+    @Test
+    @DisplayName("peek test")
+    void peek(){
+        Stack01 st = new Stack01();
+        st.push(10);
+
+        assertEquals(10, st.peek());
+    }
 }

@@ -35,4 +35,11 @@ public class Stack01 {
             return true;
         return false;
     }
+
+    public int peek() {
+        if(this.isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return stack[pointer];
+    }
 }
