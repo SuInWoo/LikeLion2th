@@ -19,23 +19,21 @@ class Stack01Test {
     @DisplayName("push 테스트")
     void push() {
         Stack01 stack = new Stack01();
-        stack.push(100);
-        stack.push(200);
+        stack.push(10);
+        stack.push(20);
 
-        assertThat(100).isEqualTo(stack.getArrById(0));
-        assertThat(200).isEqualTo(stack.getArrById(1));
+        assertThat(10).isEqualTo(stack.getArrById(0));
+        assertThat(20).isEqualTo(stack.getArrById(1));
     }
 
     @Test
     @DisplayName("pop 테스트")
     void pop() {
         Stack01 stack = new Stack01();
-        int firstInput = 100;
-        int secondInput = 200;
-        stack.push(firstInput);
-        stack.push(secondInput);
+        stack.push(10);
+        stack.push(20);
 
-        assertThat(secondInput).isEqualTo(stack.pop());
-        assertThat(firstInput).isEqualTo(stack.pop());
+        assertThat(20).isEqualTo(stack.pop());
+        assertThat(10).isEqualTo(stack.pop());
     }
 }
