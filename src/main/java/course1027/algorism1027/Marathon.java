@@ -1,4 +1,4 @@
-package course1025.algorism1025;
+package course1027.algorism1027;
 
 import java.util.HashMap;
 
