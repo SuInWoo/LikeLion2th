@@ -9,7 +9,7 @@ import java.util.ArrayList;
     풀이방법
     1. 나머지 활용하여 배열의 방 비교
     2. a와 answers비교하여 cnt1에 담음, ...
-    3. cnt 비교하여 정답자를 담음
+    3. cnt 비교하여 정답자를 담음 => cnt 대신 주어진 answer 배열에 담음(배열 방번호를 활용하기 위함)
 
  */
 public class Exam {
