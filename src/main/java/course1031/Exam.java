@@ -32,7 +32,7 @@ public class Exam {
                 answer[2]++;
         }
 
-        max = Math.max(Math.max(answer[0], answer[1]), Math.max(answer[1], answer[2]));
+        max = Math.max(Math.max(answer[0], answer[1]), answer[2]);
 
         for (int i = 0; i < answer.length; i++) {
             if (max == answer[i])
