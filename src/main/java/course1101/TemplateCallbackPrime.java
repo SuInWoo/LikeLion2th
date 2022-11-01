@@ -1,17 +1,17 @@
 package course1101;
 
+interface StatementStrategy {
+    boolean compare(int a, int b);
+}
+
 public class TemplateCallbackPrime {
 
-    boolean someOperation(int a, int b) {
-        return a < b;
-    }
-
-    boolean isPrime(int num){
+    boolean isPrime(int num, StatementStrategy stmt){
         // 1. i < num
         // 2. i < num / 2
         // 3. i* i < num
 
-        for (int i = 2; someOperation(i, num); i++) {
+        for (int i = 2; stmt.compare(i, num); i++) {
             if (num % i == 0) return false;
         }
         return true;
@@ -19,7 +19,9 @@ public class TemplateCallbackPrime {
 
     public static void main(String[] args) {
         TemplateCallbackPrime tcp = new TemplateCallbackPrime();
-        boolean r = tcp.isPrime(17);
-        System.out.println(r);
+        System.out.println(tcp.isPrime(13, (a,b) -> a < b));
+        System.out.println(tcp.isPrime(17, (a,b) -> a < b/2));
+        System.out.println(tcp.isPrime(19, (a,b) -> a * a < b));
+
     }
 }
