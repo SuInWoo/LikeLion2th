@@ -1,6 +1,6 @@
 package course1107;
 
-public class Hasshad2 {
+public class Harshad2 {
     public boolean solution(int x) {
         boolean ans = true;
         int sumOfDigit = 0;
@@ -17,9 +17,9 @@ public class Hasshad2 {
         return ans;
     }
     public static void main(String[] args) {
-        Hasshad2 hasshad2 = new Hasshad2();
+        Harshad2 harshad2 = new Harshad2();
 
-        boolean ans = hasshad2.solution(12);
+        boolean ans = harshad2.solution(12);
         System.out.println(ans);
     }
 }
