@@ -15,7 +15,6 @@ public class Hasshad2 {
             ans = false;
 
         return ans;
-
     }
     public static void main(String[] args) {
         Hasshad2 hasshad2 = new Hasshad2();
