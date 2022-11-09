@@ -3,7 +3,7 @@ package course1109;
 import java.util.Arrays;
 
 interface StatementStrategy {
-    boolean apply(int a, int b);
+    boolean compare(int a, int b);
 }
 
 // interface를 선언하고
@@ -14,7 +14,7 @@ public class SelectionSort2 {
         for (int i = 0; i < arr.length - 1; i++) {
             int minIdx = i;
             for (int j = i; j < arr.length; j++) {
-                if (stmt.apply(arr[minIdx], arr[j])) minIdx = j;
+                if (stmt.compare(arr[minIdx], arr[j])) minIdx = j;
             }
             int temp = arr[i];
             arr[i] = arr[minIdx];
