@@ -1,4 +1,4 @@
-package courser1110;
+package course1110;
 
 
 import java.util.ArrayList;
