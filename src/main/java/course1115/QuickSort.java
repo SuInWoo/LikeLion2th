@@ -9,6 +9,9 @@ import java.util.List;
 public class QuickSort {
     public static List<Integer> quickSort(List<Integer> list) {
 
+        if (list.size() <= 1)
+            return list;
+
         List<Integer> left = new ArrayList<>(); //pivot 기준 왼쪽 리스트 -> pivot 보다 작은값
         List<Integer> right = new ArrayList<>();//pivot 기준 오른쪽 리스트  -> pivot 보다 큰값
         List<Integer> ans = new ArrayList<>();
@@ -25,14 +28,9 @@ public class QuickSort {
             }
         }
 
-        if (left.size() > 1)
-            left = quickSort(left);
-        if (right.size() > 1)
-            right = quickSort(right);
-
-        ans.addAll(left);
+        ans.addAll(quickSort(left));
         ans.add(pivot);
-        ans.addAll(right);
+        ans.addAll(quickSort(right));
 
         return ans;
     }
