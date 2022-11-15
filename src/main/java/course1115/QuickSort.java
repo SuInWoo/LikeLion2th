@@ -4,28 +4,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-    20, 18, 5, 19, 5, 25 [ 40 ], 50
+    20, 18, 3, 19, 40, 50, 5, 25
  */
 public class QuickSort {
-    public static void main(String[] args) {
-        int[] arr = new int[]{20, 18, 3, 19, 40, 50, 5, 25};
+    public static List<Integer> quickSort(List<Integer> list) {
+
         List<Integer> left = new ArrayList<>(); //pivot 기준 왼쪽 리스트 -> pivot 보다 작은값
-        List<Integer> mid = new ArrayList<>();  //pivot을 담는 리스트
         List<Integer> right = new ArrayList<>();//pivot 기준 오른쪽 리스트  -> pivot 보다 큰값
+        List<Integer> ans = new ArrayList<>();
 
         // 1. 기준값 뽑는 로직 구현
-        int pivot = arr[arr.length/2];
+        int pivot = list.get(list.size()/2);
 
         // 2. 기준값 기준으로 왼쪽 오른쪽으로 나누어 담는 로직 구현
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < pivot)
-                left.add(arr[i]);
-            else if (arr[i] > pivot) {
-                right.add(arr[i]);
-            } else
-                mid.add(arr[i]);
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) < pivot)
+                left.add(list.get(i));
+            else if (list.get(i) > pivot) {
+                right.add(list.get(i));
+            }
         }
 
-        // hint. List사용
+        if (left.size() > 1)
+            left = quickSort(left);
+        if (right.size() > 1)
+            right = quickSort(right);
+
+        ans.addAll(left);
+        ans.add(pivot);
+        ans.addAll(right);
+
+        return ans;
+    }
+    public static void main(String[] args) {
+        int[] arr = new int[]{20, 18, 3, 19, 40, 50, 5, 25};
+        List<Integer> list = new ArrayList<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            list.add(arr[i]);
+        }
+        System.out.print(quickSort(list));
     }
 }
