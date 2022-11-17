@@ -4,23 +4,26 @@ import java.util.Arrays;
 
 public class QuickSortArray {
 
-    public int[] sort(int[] arr) {
-        int pivot = arr[arr.length/2];  //중간값을 pivot으로 잡음
+    public int[] sort(int[] arr, int startIdx, int endIdx) {
+        int leftIdx = startIdx;
+        int rightIdx = endIdx;
 
-        int leftIdx = 0;
-        int rightIdx = arr.length-1;
+        int pivot = arr[(leftIdx+rightIdx)/2];  //중간값을 pivot으로 잡음
 
         while (leftIdx <= rightIdx) {
             while (arr[leftIdx] < pivot) leftIdx++;
             while (arr[rightIdx] > pivot) rightIdx--;
 
             //교환
-            arr = swap(arr, leftIdx, rightIdx);
-
-            // 교환 후 Idx 변경
-            leftIdx++;
-            rightIdx--;
+            if (leftIdx <= rightIdx) {
+                arr = swap(arr, leftIdx, rightIdx);
+                leftIdx++;
+                rightIdx--;
+            }
         }
+
+        if (startIdx < rightIdx)sort(arr, startIdx, rightIdx);
+        if (endIdx > leftIdx) sort(arr, leftIdx, endIdx);
 
         return arr;
     }
@@ -38,7 +41,7 @@ public class QuickSortArray {
         QuickSortArray qsa = new QuickSortArray();
         int[] arr = new int[]{20, 18, 5, 19, 40, 50, 5, 25};
 
-        System.out.println(Arrays.toString(qsa.sort(arr)));
+        System.out.println(Arrays.toString(qsa.sort(arr, 0, arr.length-1)));
 
 
 
