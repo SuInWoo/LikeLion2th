@@ -16,9 +16,7 @@ public class Caesar {
             }
         }
 
-        String ans = sb.toString();
-
-        return ans;
+        return sb.toString();
     }
     public static void main(String[] args) {
         Caesar caesar = new Caesar();
