@@ -4,30 +4,24 @@ import java.util.Scanner;
 
 public class Triangle {
 
+    // 1 부터 n 까지 출력
     public static void printTriangle(int n) {
-
-        if (n == 0) {
+        if (n == 0)
             return;
-        }
+
         printTriangle(n-1);
-        System.out.printf("%d ", n);
+        System.out.println(setString(n));
     }
 
-    public static void solution(int start, int end) {
+    public static String setString(int n) {
+        if (n == 0)
+            return "";
 
-        if (start == end)
-            return;
-
-        start++;
-        printTriangle(start);
-        System.out.println();
-        solution(start, end);
-
+        return setString(n-1) + n + " ";
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        solution(0, a);
+        printTriangle(sc.nextInt());
     }
 }
