@@ -1,5 +1,7 @@
 package course1125;
 
+import java.util.Scanner;
+
 public class Gcd {
 
     public static int solution (int a, int b) {
@@ -15,6 +17,7 @@ public class Gcd {
     }
 
     public static void main(String[] args) {
-        System.out.println(solution(196, 42));
+        Scanner sc = new Scanner(System.in);
+        System.out.println(solution(sc.nextInt(), sc.nextInt()));
     }
 }
