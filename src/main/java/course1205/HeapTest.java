@@ -6,8 +6,8 @@ public class HeapTest {
 
         for (int i = arr.length-1; i >= 0; i--) {
             int parent = i;
-            int left = 2*i+1;
-            int right = 2*i+2;
+            int left = getLeftIdx(parent);
+            int right = getRightIdx(parent);
 
             if (left <= arr.length-1 && arr[parent] < arr[left])
                 arr = swap(parent, left, arr);
@@ -17,6 +17,14 @@ public class HeapTest {
         }
 
         return arr;
+    }
+
+    public static int getLeftIdx(int parent) {
+        return 2*parent+1;
+    }
+
+    public static int getRightIdx(int parent) {
+        return 2*parent+2;
     }
 
     public static int[] swap(int a, int b, int[] arr) {
