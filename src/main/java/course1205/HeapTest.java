@@ -28,8 +28,7 @@ public class HeapTest {
     }
 
     public static int[] swap(int a, int b, int[] arr) {
-        int temp = 0;
-        temp = arr[a];
+        int temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;
 
